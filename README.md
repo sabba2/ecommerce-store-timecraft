@@ -2,15 +2,7 @@
 
 Technologies used: HTML, CSS, JavaScript, Python, Flask, SQLite
 
-Functionalities include:
--Item details page
--Adding to cart
--Deleting from cart
--Emptying cart
--View Basket
--Checkout
--Search Bar
--Brand Filtering
+Functionalities include: Item details page, Adding to cart, Deleting from cart, Emptying cart, View Basket, Checkout, Search Bar, Brand Filtering
 
 Currently only brand filtering is functioning out of all of the filters.
 Quantity adjuster on item details page is not currently functioning, however you are able to add multiple of the same item
