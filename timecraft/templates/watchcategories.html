@@ -1,0 +1,326 @@
+{% extends 'base.html' %}
+
+{% block main %}
+<div class="container">
+    <h1 class="category-title">{{category.name}}</h1>
+</div>
+<div class="container grid-container main-and-sidebar">
+    <form action="{{ url_for('main.filter', category_name=category.name) }}" method="post">
+        <div class="accordion sidebar" id="accordionExample">
+            <h2 class="filter-title">Filters</h2>
+            <div class="card">
+                <h2 class="mb-0">
+                    <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne"
+                        aria-expanded="true" aria-controls="collapseOne">
+                        <div class="card-header" id="headingOne">Price</div>
+                        <div class="card-header" id="headingOne"><svg xmlns="http://www.w3.org/2000/svg" width="16"
+                                height="16" fill="currentColor" class="bi bi-chevron-down" viewBox="0 0 16 16">
+                                <path fill-rule="evenodd"
+                                    d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z" />
+                            </svg></div>
+                    </button>
+                </h2>
+                <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+                    <div class="card-body">
+                        <form>
+                            <form>
+                                <div class="form-group">
+                                    <label for="formControlRange"></label>
+                                    <input type="range" id="price-input" min="0" max="20000" value="5000" step="100"
+                                        class="form-control-range" id="formControlRange">
+                                </div>
+                            </form>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+
+                <h2 class="mb-0">
+                    <button class="btn btn-link collapsed" type="button" data-toggle="collapse"
+                        data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                        <div class="card-header" id="headingTwo">Brand</div>
+                        <div class="card-header" id="headingTwo"><svg xmlns="http://www.w3.org/2000/svg" width="16"
+                                height="16" fill="currentColor" class="bi bi-chevron-down" viewBox="0 0 16 16">
+                                <path fill-rule="evenodd"
+                                    d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z" />
+                            </svg></div>
+                    </button>
+                </h2>
+
+                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+                    <div class="card-body">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="Tag Heuer" name="brand_filter"
+                                id="brandFilter">
+                            <label class="form-check-label" for="brandFilter">
+                                Tag Heuer
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="Tissot" name="brand_filter"
+                                id="brandFilter1">
+                            <label class="form-check-label" for="brandFilter1">
+                                Tissot
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="Luminox" name="brand_filter"
+                                id="brandFilter2">
+                            <label class="form-check-label" for="brandFilter2">
+                                Luminox
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="Seiko" name="brand_filter"
+                                id="brandFilter3">
+                            <label class="form-check-label" for="brandFilter3">
+                                Seiko
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="Casio" name="brand_filter"
+                                id="brandFilter4">
+                            <label class="form-check-label" for="brandFilter4">
+                                Casio
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="Citizen" name="brand_filter"
+                                id="brandFilter5">
+                            <label class="form-check-label" for="brandFilter5">
+                                Citizen
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="Longines" name="brand_filter"
+                                id="brandFilter6">
+                            <label class="form-check-label" for="brandFilter6">
+                                Longines
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="Loyal" name="brand_filter"
+                                id="brandFilter7">
+                            <label class="form-check-label" for="brandFilter7">
+                                Loyal
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="Rado" name="brand_filter"
+                                id="brandFilter8">
+                            <label class="form-check-label" for="brandFilter8">
+                                Rado
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+
+                <h2 class="mb-0">
+                    <button class="btn btn-link collapsed" type="button" data-toggle="collapse"
+                        data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                        <div class="card-header" id="headingThree">Material </div>
+                        <div class="card-header" id="headingThree"><svg xmlns="http://www.w3.org/2000/svg" width="16"
+                                height="16" fill="currentColor" class="bi bi-chevron-down" viewBox="0 0 16 16">
+                                <path fill-rule="evenodd"
+                                    d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z" />
+                            </svg></div>
+                    </button>
+                </h2>
+
+                <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+                    <div class="card-body">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="defaultCheck4">
+                            <label class="form-check-label" for="defaultCheck4">
+                                Stainless Steel
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="defaultCheck5">
+                            <label class="form-check-label" for="defaultCheck5">
+                                Yellow Gold
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="defaultCheck6">
+                            <label class="form-check-label" for="defaultCheck6">
+                                Ceramic
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+
+                <h2 class="mb-0">
+                    <button class="btn btn-link collapsed" type="button" data-toggle="collapse"
+                        data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                        <div class="card-header" id="headingFour"> Case Diameter</div>
+                        <div class="card-header" id="headingFour"><svg xmlns="http://www.w3.org/2000/svg" width="16"
+                                height="16" fill="currentColor" class="bi bi-chevron-down" viewBox="0 0 16 16">
+                                <path fill-rule="evenodd"
+                                    d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z" />
+                            </svg></div>
+                    </button>
+                </h2>
+
+                <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordionExample">
+                    <div class="card-body">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="defaultCheck7">
+                            <label class="form-check-label" for="defaultCheck7">
+                                40mm
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="defaultCheck8">
+                            <label class="form-check-label" for="defaultCheck8">
+                                41mm
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="defaultCheck9">
+                            <label class="form-check-label" for="defaultCheck9">
+                                42mm
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+
+                <h2 class="mb-0">
+                    <button class="btn btn-link collapsed" type="button" data-toggle="collapse"
+                        data-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                        <div class="card-header" id="headingFive">Dial Colour</div>
+                        <div class="card-header" id="headingFive"><svg xmlns="http://www.w3.org/2000/svg" width="16"
+                                height="16" fill="currentColor" class="bi bi-chevron-down" viewBox="0 0 16 16">
+                                <path fill-rule="evenodd"
+                                    d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z" />
+                            </svg></div>
+                    </button>
+                </h2>
+
+                <div id="collapseFive" class="collapse" aria-labelledby="headingFive" data-parent="#accordionExample">
+                    <div class="card-body">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="defaultCheck10">
+                            <label class="form-check-label" for="defaultCheck10">
+                                Black
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="defaultCheck11">
+                            <label class="form-check-label" for="defaultCheck11">
+                                Blue
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="defaultCheck12">
+                            <label class="form-check-label" for="defaultCheck12">
+                                Green
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+
+                <h2 class="mb-0">
+                    <button class="btn btn-link collapsed" type="button" data-toggle="collapse"
+                        data-target="#collapseSeven" aria-expanded="false" aria-controls="collapseSeven">
+                        <div class="card-header" id="headingSeven">Strap Type</div>
+                        <div class="card-header" id="headingSeven"><svg xmlns="http://www.w3.org/2000/svg" width="16"
+                                height="16" fill="currentColor" class="bi bi-chevron-down" viewBox="0 0 16 16">
+                                <path fill-rule="evenodd"
+                                    d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z" />
+                            </svg></div>
+                    </button>
+                </h2>
+
+                <div id="collapseSeven" class="collapse" aria-labelledby="headingSeven" data-parent="#accordionExample">
+                    <div class="card-body">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="defaultCheck13">
+                            <label class="form-check-label" for="defaultCheck13">
+                                Bracelet
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="defaultCheck14">
+                            <label class="form-check-label" for="defaultCheck14">
+                                Leather
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="defaultCheck15">
+                            <label class="form-check-label" for="defaultCheck15">
+                                Rubber
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+
+                <h2 class="mb-0">
+                    <button class="btn btn-link collapsed" type="button" data-toggle="collapse"
+                        data-target="#collapseEight" aria-expanded="false" aria-controls="collapseEight">
+                        <div class="card-header" id="headingEight">Style/Size</div>
+                        <div class="card-header" id="headingEight"><svg xmlns="http://www.w3.org/2000/svg" width="16"
+                                height="16" fill="currentColor" class="bi bi-chevron-down" viewBox="0 0 16 16">
+                                <path fill-rule="evenodd"
+                                    d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z" />
+                            </svg></div>
+                    </button>
+                </h2>
+
+                <div id="collapseEight" class="collapse" aria-labelledby="headingEight" data-parent="#accordionExample">
+                    <div class="card-body">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="defaultCheck16">
+                            <label class="form-check-label" for="defaultCheck16">
+                                Men's
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="defaultCheck17">
+                            <label class="form-check-label" for="defaultCheck17">
+                                Women's
+                            </label>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <button type="submit" class="btn btn-primary">Apply Filters</button>
+        </div>
+
+    </form>
+
+    <main class="products">
+        <div class="container featured  my-3">
+            {% for watch in watches %}
+            <div class="card" style="width: 18rem;">
+                <img class="card-img-top" src="{{url_for('static', filename='img/'+watch.image)}}" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">{{watch.name}}</h5>
+                    <p class="card-text">{{"$%.2f"|format(watch.price)}}</p>
+                    <div class="buy-or-add">
+                        <a href="{{url_for('main.details', watch_id=watch.id)}}" class="btn btn-primary card-link">View
+                            Details</a>
+                        <form class="card-link" action="{{ url_for('main.order') }}">
+                            <input type="hidden" id="watch_id" name="watch_id" value="{{ watch.id }}">
+                            <input class="btn btn-primary" type="submit" value="Add to Cart">
+                        </form>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </main>
+</div>
+{% endblock %}

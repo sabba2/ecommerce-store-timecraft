@@ -1,0 +1,81 @@
+{% extends 'base.html' %}
+
+{% block main %}
+<div class="container product-details">
+
+    <img src="{{url_for('static', filename='img/'+watch.image)}}" alt="{{watch.name}}">
+
+    <div class="product">
+        <h2>{{watch.name}}</h2>
+        <p>${{watch.price}}</p>
+        <p>Quantity: </p>
+        <div>
+            <div class="input-group">
+                <div class="input-group-prepend">
+                    <button type="button" class="input-group-text">-</button>
+                </div>
+                <input type="text" class="form-control text-center" value="1">
+                <div class="input-group-append">
+                    <button type="button" class="input-group-text">+</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="buy-or-add details-add-to-cart">
+            <form class="card-link" action="{{ url_for('main.order') }}">
+                <input type="hidden" id="watch_id" name="watch_id" value="{{ watch.id }}">
+                <input class="btn btn-primary" id="product-add-to-cart" type="submit" value="Add to Cart">
+            </form>
+        </div>
+    </div>
+</div>
+<div class="information container">
+    <div>
+        <h3>Description</h3>
+        <p>{{watch.description}}</p>
+    </div>
+
+    <div class="product-specification">
+        <h3 class="specification-title">Product Specification</h3>
+        <table class="table">
+            <thead>
+            </thead>
+            <tbody>
+                <tr>
+                    <th scope="row">Collection</th>
+                    <td>{{watch.collection}}</td>
+                </tr>
+                <tr>
+                    <th scope="row">Style</th>
+                    <td>{{watch.style}}</td>
+                </tr>
+                <tr>
+                    <th scope="row">Material</th>
+                    <td>{{watch.material}}</td>
+                </tr>
+                <tr>
+                    <th scope="row">Band/Strap</th>
+                    <td>{{watch.strap_type}}</td>
+                </tr>
+                <tr>
+                    <th scope="row">Dial Colour</th>
+                    <td>{{watch.dial_colour}}</td>
+                </tr>
+                <tr>
+                    <th scope="row">Glass</th>
+                    <td>{{watch.glass}}</td>
+                </tr>
+                <tr>
+                    <th scope="row">Watch Movement</th>
+                    <td>{{watch.movement_type}}</td>
+                </tr>
+                <tr>
+                    <th scope="row">Water Resistance</th>
+                    <td>{{watch.water_resistance}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+</div>
+{% endblock %}

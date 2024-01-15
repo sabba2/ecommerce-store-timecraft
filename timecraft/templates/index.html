@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+
+{% block main %}
+<!-- Hero -->
+<div class="p-5 text-center bg-image rounded-3" style="
+background-image: url('static/img/watch-banner3.jpg'); 
+background-size: cover; 
+height: 400px;
+">
+    <div class="mask" style="background-color: rgba(0, 0, 0, 0.6);">
+        <div class="d-flex justify-content-center align-items-center h-100">
+            <div class="text-white hero">
+                <h2 class="mb-3 hero-title">Expertly crafted, Timeless pieces</h2>
+                <h4 class="mb-3">
+                    Welcome to Timecraft, where precision meets elegance in the art of timekeeping. Established
+                    with a passion for craftsmanship and an unwavering commitment to quality, Timecraft is your
+                    destination for exquisite watches that transcend mere functionality to become timeless
+                    expressions of style.</h4>
+                <a class="btn btn-outline-light btn-lg contact mb-3" href="#!" role="button">Contact Us</a>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Hero -->
+<!-- Featured item cards -->
+<h2 class="my-3 featured-title">Featured Watches</h2>
+<div class="container featured  my-3">
+    {% for watch in featured %}
+    <div class="card">
+        <img class="card-img-top" src="{{url_for('static', filename='img/'+watch.image)}}" alt="Card image cap">
+        <div class="card-body">
+            <h5 class="card-title">{{watch.name}}</h5>
+            <p class="card-text">{{"$%.2f"|format(watch.price)}}</p>
+            <div class="buy-or-add">
+                <a href="{{url_for('main.details', watch_id=watch.id)}}" class="btn btn-primary card-link">View
+                    Details</a>
+                <form class="card-link" action="{{ url_for('main.order') }}">
+                    <input type="hidden" id="watch_id" name="watch_id" value="{{ watch.id }}">
+                    <input class="btn btn-primary" type="submit" value="Add to Cart">
+                </form>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+
+</div>
+</div>
+<!-- Featured item cards -->
+{% endblock %}
